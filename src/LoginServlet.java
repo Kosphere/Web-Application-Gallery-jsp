@@ -30,10 +30,9 @@ public class LoginServlet extends HttpServlet {
                 response.getWriter().write("<script>history.back();</script>");
             } else {
                 response.setStatus(200);
-                session.setAttribute("user",user);
-                session.setAttribute("permission",user.getPermission());
-                response.getWriter().write("<script>window.location.href = goBack($(\".login-body\").attr(\"id\"));</script>");
-
+                session.setAttribute("user",existUser);
+                session.setAttribute("permission",existUser.getPermission());
+                response.sendRedirect(request.getContextPath() + "/index.jsp");
             }
         } catch (Exception e) {
             session.setAttribute("permission",0);

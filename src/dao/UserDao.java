@@ -3,10 +3,7 @@ package dao;
 import util.JdbcUtil;
 import vo.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class UserDao {
     public User findUser(User user) throws Exception {
@@ -26,6 +23,7 @@ public class UserDao {
                 u.setEmail(rs.getString("email"));
                 u.setNumber(rs.getInt("number"));
                 u.setAddress(rs.getString("address"));
+                u.setPermission(rs.getInt("permission"));
                 return u;
             }
         } finally {
@@ -38,9 +36,10 @@ public class UserDao {
         return null;
     }
 
+
     public boolean writeUser(User user) throws Exception {
         //String checkSql = "select count(*) from project_user where username='" + user.getUsername() + "'";
-        String sql = "insert into project_user (user_id,username,password,email,number,address) values(null,?,?,?,?,?)";
+        String sql = "insert into project_user (id,username,password,email,number,address,permission) values(null,?,?,?,?,?,?)";
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
@@ -58,6 +57,7 @@ public class UserDao {
             ps.setString(3, user.getEmail());
             ps.setInt(4, user.getNumber());
             ps.setString(5, user.getAddress());
+            ps.setInt(6,user.getPermission());
             //执行
             int a = ps.executeUpdate();
             if(a>0) flag=true;
