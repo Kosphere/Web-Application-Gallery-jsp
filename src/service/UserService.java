@@ -1,13 +1,13 @@
 package service;
 
-import dao.UserDaoImpl;
+import dao.UserDao;
 import vo.User;
 
 public class UserService {
     public User login(User user) throws Exception {
         User existUser = null;
         try {
-            existUser = new UserDaoImpl().findUser(user);
+            existUser = new UserDao().findUser(user);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -15,7 +15,7 @@ public class UserService {
     }
 
     public boolean register(User user) throws Exception {
-        UserDaoImpl userDao = new UserDaoImpl();
+        UserDao userDao = new UserDao();
         return userDao.writeUser(user);
     }
 

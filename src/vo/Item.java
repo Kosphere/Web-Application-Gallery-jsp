@@ -1,36 +1,57 @@
 package vo;
 
 public class Item {
-    private int item_id;
-    private String item_name;
-    private String image_file;
+    private int id;
+    private String name;
+    private String image;
     private String description;
     private String address;
     private String date;
-    private String video_file;
+    private String video;
+    private int hot;
+    private String IMG_SRC="img/item/";
 
-    public int getItem_id() {
-        return item_id;
+    public Item(int id, String name, String image, String description, String address, String date, String video, int hot) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.description = description;
+        this.address = address;
+        this.date = date;
+        this.video = video;
+        this.hot = hot;
     }
 
-    public void setItem_id(int item_id) {
-        this.item_id = item_id;
+    public int getId() {
+        return id;
     }
 
-    public String getItem_name() {
-        return item_name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setItem_name(String item_name) {
-        this.item_name = item_name;
+    public int getHot() {
+        return hot;
     }
 
-    public String getImage_file() {
-        return image_file;
+    public void setHot(int hot) {
+        this.hot = hot;
     }
 
-    public void setImage_file(String image_file) {
-        this.image_file = image_file;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImage() {
+        return IMG_SRC + image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {
@@ -57,15 +78,12 @@ public class Item {
         this.date = date;
     }
 
-    public String getVideo_file() {
-        return video_file;
+    public String getVideo() {
+        return video;
     }
 
-    public void setVideo_file(String video_file) {
-        this.video_file = video_file;
+    public void setVideo(String video) {
+        this.video = video;
     }
 
-    public Item() {
-        super();
-    }
 }

@@ -1,19 +1,28 @@
 package vo;
 
 public class User {
-    private int user_id;
+    private int id;
     private String username;
     private String password;
     private String email;
     private int number;
     private String address;
+    private int permission;
 
-    public int getUser_id() {
-        return user_id;
+    public int getPermission() {
+        return permission;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setPermission(int permission) {
+        this.permission = permission;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
