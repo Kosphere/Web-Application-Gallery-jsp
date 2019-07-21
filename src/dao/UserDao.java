@@ -36,6 +36,28 @@ public class UserDao {
         return null;
     }
 
+    public boolean checkRepeat(User user) throws Exception {
+        String sql = "select * from project_user where username='" + user.getUsername() + "'";
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        try {
+            conn = JdbcUtil.getConnection();
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            if (rs.next()) { // 如果可以next,代表查找到了这个用户的信息
+                return false;
+            }
+        } finally {
+            try {
+                JdbcUtil.close(rs, st, conn);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
+    }
+
 
     public boolean writeUser(User user) throws Exception {
         //String checkSql = "select count(*) from project_user where username='" + user.getUsername() + "'";
@@ -48,23 +70,15 @@ public class UserDao {
         try {
             conn = JdbcUtil.getConnection();
             ps = conn.prepareStatement(sql);
-            //rs = st.executeQuery(checkSql);
-            //int count = 0;
-            //while (rs.next()) {
-                //
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getEmail());
             ps.setInt(4, user.getNumber());
             ps.setString(5, user.getAddress());
             ps.setInt(6,user.getPermission());
-            //执行
             int a = ps.executeUpdate();
             if(a>0) flag=true;
             ps.close();
-            //} else {
-              //  return false;
-            //}
         }finally {
             try {
                 JdbcUtil.close(rs, st, conn);

@@ -4,6 +4,7 @@ import util.JdbcUtil;
 import vo.Item;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -17,12 +18,6 @@ public class ItemDao {
             return items.get(0);
         else
             return null;
-    }
-
-
-    public ArrayList<Item> getHottest(){
-        String sql = "SELECT * FROM project_item Order By `like` desc limit 3";
-        return getItems(sql);
     }
 
     public ArrayList<Item> getItems(String sql) {
@@ -56,6 +51,32 @@ public class ItemDao {
             }
         }
         return items;
+    }
+
+    public boolean addHot(int id) {
+        int newHot = new ItemDao().getItem(id).getHot() + 1;
+        String sql = "update project_item set hot='" + newHot + "'where id ='" + id + "'";
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        boolean flag = false;
+        try {
+            conn = JdbcUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            int a = ps.executeUpdate();
+            if(a>0) flag=true;
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                JdbcUtil.close(rs, st, conn);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return flag;
     }
 
 }

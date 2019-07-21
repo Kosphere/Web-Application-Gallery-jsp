@@ -1,5 +1,5 @@
 <%@ page import="vo.User" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,7 +19,7 @@
             <div class="nav nav-justified">
                 <div class="col-sm">
                     <div class="nav-item">
-                        <a class="nav-link disabled" href="#">搜索</a>
+                        <a class="nav-link" href="Search.jsp">搜索</a>
                     </div>
                 </div>
                 <% Object headerPermission = request.getSession().getAttribute("permission");
@@ -39,7 +39,7 @@
                                     <%= headerUser.getUsername()%>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">个人中心</a>
+                                    <a class="dropdown-item" href="User.jsp">个人中心</a>
                                     <a class="dropdown-item" href="#">好友</a>
                                     <a class="dropdown-item" href="#">收藏夹</a>
                                     <a class="dropdown-item" href="#">信箱</a>

@@ -19,5 +19,9 @@ public class UserService {
         return userDao.writeUser(user);
     }
 
+    public boolean check(User user) throws Exception {
+        UserDao userDao = new UserDao();
+        return userDao.checkRepeat(user);
+    }
 
 }

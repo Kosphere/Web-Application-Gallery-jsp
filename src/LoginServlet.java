@@ -12,6 +12,7 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -20,6 +21,7 @@ public class LoginServlet extends HttpServlet {
         user.setPassword(password);
         UserService service = new UserService();
         User existUser = null;
+        String url = (String) session.getAttribute("url");
         try {
             existUser=service.login(user);
             if (existUser == null) {
@@ -32,7 +34,7 @@ public class LoginServlet extends HttpServlet {
                 response.setStatus(200);
                 session.setAttribute("user",existUser);
                 session.setAttribute("permission",existUser.getPermission());
-                response.sendRedirect(request.getContextPath() + "/index.jsp");
+                response.sendRedirect(url);
             }
         } catch (Exception e) {
             session.setAttribute("permission",0);

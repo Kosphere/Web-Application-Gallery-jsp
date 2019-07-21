@@ -17,4 +17,14 @@ public class ItemService {
         String sql = "SELECT * FROM project_item Order By `hot` desc limit 3";
         return itemDao.getItems(sql);
     }
+
+    public Item getItem(int id) {
+        ItemDao itemDao = new ItemDao();
+        return itemDao.getItem(id);
+    }
+
+    public boolean addHot(int id){
+        ItemDao itemDao = new ItemDao();
+        return itemDao.addHot(id);
+    }
 }

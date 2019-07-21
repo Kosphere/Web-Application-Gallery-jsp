@@ -1,7 +1,7 @@
 <%@ page import="vo.Item" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="service.ItemService" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%
   session.setAttribute("url","index.jsp");
   ItemService index_item_service = new ItemService();
@@ -26,21 +26,21 @@
       <div class="carousel-item active">
         <img src="<%=hottest.get(0).getImage()%>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><%=hottest.get(0).getName()%></h5>
+          <h5><a href="Item.jsp" <%session.setAttribute("id",hottest.get(0).getId());%>><%=hottest.get(0).getName()%></a></h5>
           <p><%=hottest.get(0).getDescription()%></p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="<%=hottest.get(1).getImage()%>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><%=hottest.get(1).getName()%></h5>
+          <h5><a href="Item.jsp" <%session.setAttribute("id",hottest.get(1).getId());%>><%=hottest.get(1).getName()%></a></h5>
           <p><%=hottest.get(1).getDescription()%></p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="<%=hottest.get(2).getImage()%>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5><%=hottest.get(2).getName()%></h5>
+          <h5><a href="Item.jsp" <%session.setAttribute("id",hottest.get(2).getId());%>><%=hottest.get(2).getName()%></a></h5>
           <p><%=hottest.get(2).getDescription()%></p>
         </div>
       </div>
@@ -61,7 +61,7 @@
         <div class="card">
           <img src="<%=latest.get(0).getImage()%>" alt="<%=latest.get(0).getId()%>" class="card-img-top"  style="height: 12rem">
           <div class="card-body">
-            <h5><%=latest.get(0).getName()%></h5>
+            <h5><a href="Item.jsp" <%session.setAttribute("id",latest.get(0).getId());%>><%=latest.get(0).getName()%></a></h5>
             <p><%=latest.get(0).getDescription()%></p>
           </div>
         </div>
@@ -70,7 +70,7 @@
         <div class="card">
           <img src="<%=latest.get(1).getImage()%>" alt="<%=latest.get(1).getId()%>" class="card-img-top"  style="height: 12rem">
           <div class="card-body">
-            <h5><%=latest.get(1).getName()%></h5>
+            <h5><a href="Item.jsp" <%session.setAttribute("id",latest.get(1).getId());%>><%=latest.get(1).getName()%></a></h5>
             <p><%=latest.get(1).getDescription()%></p>
           </div>
         </div>
@@ -79,7 +79,7 @@
         <div class="card">
           <img src="<%=latest.get(2).getImage()%>" alt="<%=latest.get(2).getId()%>" class="card-img-top"  style="height: 12rem">
           <div class="card-body">
-            <h5><%=latest.get(2).getName()%></h5>
+            <h5><a href="Item.jsp" <%session.setAttribute("id",latest.get(2).getId());%>><%=latest.get(2).getName()%></a></h5>
             <p><%=latest.get(2).getDescription()%></p>
           </div>
         </div>
