@@ -1,12 +1,14 @@
 <%@ page import="service.ItemService" %>
 <%@ page import="vo.Item" %>
 <%
-    session.setAttribute("url","Item.jsp");
+
     ItemService itemService = new ItemService();
-    Object itemId = session.getAttribute("id");
+    String itemId = request.getParameter("id");
+    String URL = "Item.jsp?id=" + itemId;
+    session.setAttribute("url",URL);
     Item item;
     if (itemId != null) {
-        item = itemService.getItem((Integer) itemId);
+        item = itemService.getItem(Integer.parseInt(itemId));
         itemService.addHot(item.getId());
     } else item = itemService.getItem(1);
 %>

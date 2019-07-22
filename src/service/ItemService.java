@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ItemService {
     public ArrayList<Item> getLatest(){
         ItemDao itemDao = new ItemDao();
-        String sql = "SELECT * FROM project_item Order By `update` desc limit 3";
+        String sql = "SELECT * FROM project_item Order By `release` desc limit 3";
         return itemDao.getItems(sql);
     }
 
