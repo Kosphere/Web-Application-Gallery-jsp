@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="form-group register-button register-form-group">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <button type="submit" id="register-btn" class="btn btn-primary btn-block" onclick="return registerFunction()">注册</button>
                     </div>
                 </div>

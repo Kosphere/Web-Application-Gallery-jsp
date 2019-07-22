@@ -8,9 +8,11 @@ import java.sql.*;
 public class UserDao {
     public User findUser(User user) throws Exception {
         String sql = "select * from project_user where username='" + user.getUsername() + "' and password='" + user.getPassword() + "'";
+
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
+        PreparedStatement ps = null;
         try {
             conn = JdbcUtil.getConnection();
             st = conn.createStatement();

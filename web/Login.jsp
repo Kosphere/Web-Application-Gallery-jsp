@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="form-group login-button login-form-group">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <button type="submit" id="login-btn" class="btn btn-primary btn-block" onclick="return loginFunction()">登录</button>
                     </div>
                 </div>

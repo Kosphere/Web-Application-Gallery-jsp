@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ItemService {
     public ArrayList<Item> getLatest(){
         ItemDao itemDao = new ItemDao();
-        String sql = "SELECT * FROM project_item Order By `date` desc limit 3";
+        String sql = "SELECT * FROM project_item Order By `update` desc limit 3";
         return itemDao.getItems(sql);
     }
 
@@ -23,8 +23,14 @@ public class ItemService {
         return itemDao.getItem(id);
     }
 
-    public boolean addHot(int id){
+    public void addHot(int id){
         ItemDao itemDao = new ItemDao();
-        return itemDao.addHot(id);
+        itemDao.addHot(id);
     }
+
+    public ArrayList<Item> getItems(String sql) {
+        ItemDao itemDao = new ItemDao();
+        return itemDao.getItems(sql);
+    }
+
 }

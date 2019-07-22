@@ -2,6 +2,7 @@ package dao;
 
 import util.JdbcUtil;
 import vo.Item;
+import vo.Paging;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,19 +54,16 @@ public class ItemDao {
         return items;
     }
 
-    public boolean addHot(int id) {
+    public void addHot(int id) {
         int newHot = new ItemDao().getItem(id).getHot() + 1;
         String sql = "update project_item set hot='" + newHot + "'where id ='" + id + "'";
         Connection conn = null;
         Statement st = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
-        boolean flag = false;
         try {
             conn = JdbcUtil.getConnection();
             ps = conn.prepareStatement(sql);
-            int a = ps.executeUpdate();
-            if(a>0) flag=true;
             ps.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -76,7 +74,7 @@ public class ItemDao {
                 e.printStackTrace();
             }
         }
-        return flag;
     }
+
 
 }
