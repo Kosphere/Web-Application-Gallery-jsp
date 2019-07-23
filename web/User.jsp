@@ -16,11 +16,12 @@
 <div class="row justify-content-md-center">
 <div class="card" style="width: auto; margin: 20px;">
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">用户名：<%=user.getUsername()%></li>
-        <li class="list-group-item">邮箱地址：<%=user.getEmail()%></li>
-        <li class="list-group-item">电话：<%=user.getNumber()%></li>
-        <li class="list-group-item">地址：<%=user.getAddress()%></li>
-        <li class="list-group-item">个性签名：XXXXXXXXXXXX</li>
+        <%=user.toString()%>
+<%--        <li class="list-group-item">用户名：<%=user.getUsername()%></li>--%>
+<%--        <li class="list-group-item">邮箱地址：<%=user.getEmail()%></li>--%>
+<%--        <li class="list-group-item">电话：<%=user.getNumber()%></li>--%>
+<%--        <li class="list-group-item">地址：<%=user.getAddress()%></li>--%>
+<%--        <li class="list-group-item">个性签名：XXXXXXXXXXXX</li>--%>
     </ul>
 </div></div>
 </body>

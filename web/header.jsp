@@ -49,7 +49,7 @@
                                     <a class="dropdown-item" href="#">好友</a>
                                     <a class="dropdown-item" href="#">收藏夹</a>
                                     <a class="dropdown-item" href="#">信箱</a>
-                                    <a class="dropdown-item" href="" onclick="Logout()">退出登录</a>
+                                   <a class="dropdown-item" href="index.jsp" onclick="Logout()">退出登录</a>
                             </div>
                         </div>
                         <%}%>
@@ -69,11 +69,9 @@
 <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script>
-    $('.dropdown-toggle').dropdown()
+    $('.dropdown-toggle').dropdown();
     function Logout() {
-        <%session.removeAttribute("headerUser");
-        session.removeAttribute("user");
-        session.removeAttribute("headerPermission");
+        <%session.removeAttribute("user");
         session.removeAttribute("permission");
         %>
         alert("已退出")

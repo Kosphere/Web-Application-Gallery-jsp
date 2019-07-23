@@ -10,6 +10,7 @@ public class Item {
     private String video;
     private int hot;
     private String IMG_SRC="img/item/";
+    private String VIDEO_SRC = "video/item/";
 
     public Item(int id, String name, String image, String description, String address, String date, String video, int hot) {
         this.id = id;
@@ -79,7 +80,7 @@ public class Item {
     }
 
     public String getVideo() {
-        return video;
+        return VIDEO_SRC + video;
     }
 
     public void setVideo(String video) {

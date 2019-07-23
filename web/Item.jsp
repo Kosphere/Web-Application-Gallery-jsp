@@ -16,21 +16,40 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        .videolist { position:relative;  width:100px; height:100px;  }
+        .videolist:hover{ cursor: pointer; }
+        .videoed { display:none; width:50px; height:50px; position: absolute; left:25%; top:50%; z-index:99; border-radius:100%; }
+        .videos{ display:none; border: 1px solid #080808; position:fixed; left:50%; top:50%; margin-left:-320px; margin-top:-210px; z-index:100; width:640px; height:360px; }
+        .vclose { position:absolute;right:1%; top:1%; border-radius:100%; cursor: pointer; }
+    </style>
     <title>详情</title>
 </head>
 <body>
 <%@include file="header.jsp"%>
-<div class="container">
+<div class="container-fluid" style="background-color:rgb(228,231,237); height: 92%; padding-top: 10px">
+<div class="container" >
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-lg-6">
             <img src="<%=item.getImage()%>" class="image" style="width: 100%;" alt="图片">
+
         </div>
-        <div class="col-md-5 item-right-border">
+        <div class="col-lg-4">
             <h2><%=item.getName()%></h2>
             <p>简介：<%=item.getDescription()%></p>
             <p>馆藏地点：<%=item.getAddress()%></p>
             <p>作品完成时间：<%=item.getDate()%></p>
             <p>热度：<%=item.getHot()%></p>
+            <div class="video">
+                <div class="container" style="margin-top: 1px; margin-bottom: 45px; margin-left: -15px">
+                    <div class="videolist" vpath="v.jpg" ipath="<%=item.getVideo()%>">
+                        <div class="vtit">视频</div>
+                        <img src="v.jpg"/>
+                        <img src="play.png" class="videoed"/>
+                    </div>
+                    <div class="videos"></div>
+                </div>
+            </div>
             <div class="btn-group" data-toggle="buttons">
                         <%if (headerPermission == null || (Integer)headerPermission < 1) {%>
                     <button type="button"  name="options" class="btn btn-primary item-button"> 登录后收藏 </button>
@@ -39,7 +58,7 @@
                                 <% } %>
             </div>
         </div>
-        <div class="col-md-2 item-right-border">
+        <div class="col-lg-2">
             <table class="table table-hover text-center">
                 <caption class="text-center">好友推荐</caption>
                 <tbody>
@@ -57,8 +76,31 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</div>
+<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $('.videolist').each(function(){ //遍历视频列表
+        $(this).hover(function(){ //鼠标移上来后显示播放按钮
+            $(this).find('.videoed').show();
+        },function(){
+            $(this).find('.videoed').hide();
+        });
+        $(this).click(function(){ //这个视频被点击后执行
+            var img = $(this).attr('vpath');//获取视频预览图
+            var video = $(this).attr('ipath');//获取视频路径
+            $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 640px' src='"+video+"' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><img onClick=\"close1()\" class=\"vclose\" src=\"gb.png\" width=\"25\" height=\"25\"/>");
+            $('.videos').show();
+        });
+    });
+
+    function close1(){
+        var v = document.getElementById('video');//获取视频节点
+        $('.videos').hide();//点击关闭按钮关闭暂停视频
+        v.pause();
+        $('.videos').html();
+    }
+</script>
+<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </body>
 </html>
