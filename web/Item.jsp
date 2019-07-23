@@ -42,10 +42,10 @@
             <p>热度：<%=item.getHot()%></p>
             <div class="video">
                 <div class="container" style="margin-top: 1px; margin-bottom: 45px; margin-left: -15px">
-                    <div class="videolist" vpath="v.jpg" ipath="<%=item.getVideo()%>">
+                    <div class="videolist" vpath="img/v.jpg" ipath="<%=item.getVideo()%>">
                         <div class="vtit">视频</div>
-                        <img src="v.jpg"/>
-                        <img src="play.png" class="videoed"/>
+                        <img src="img/v.jpg"/>
+                        <img src="img/play.png" class="videoed"/>
                     </div>
                     <div class="videos"></div>
                 </div>
@@ -76,6 +76,26 @@
         </div>
     </div>
 </div>
+    <div class="card" style="max-width: 1920px; padding: 20px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="<%=item.getImage()%>" class="card-img" style="width: 100%" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h1 class="card-title"><%=item.getName()%></h1>
+                    <h2 class="card-text"><%=item.getDescription()%></h2>
+                    <div class="container">
+                    <div style="position: absolute;right: 0px; bottom: 0px;">
+                    <div class="btn-group btn-group-lg" data-toggle="buttons">
+                        <button type="button"  name="options" class="btn btn-primary item-button"> 1 </button>
+                        <button type="button" name="options" class="btn btn-primary item-button"> 2 </button>
+                        <button type="button" name="options" class="btn btn-primary item-button"> 3 </button>
+                    </div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 <script>
@@ -88,7 +108,7 @@
         $(this).click(function(){ //这个视频被点击后执行
             var img = $(this).attr('vpath');//获取视频预览图
             var video = $(this).attr('ipath');//获取视频路径
-            $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 640px' src='"+video+"' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><img onClick=\"close1()\" class=\"vclose\" src=\"gb.png\" width=\"25\" height=\"25\"/>");
+            $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 640px' src='"+video+"' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><img onClick=\"close1()\" class=\"vclose\" src=\"img/gb.png\" width=\"25\" height=\"25\"/>");
             $('.videos').show();
         });
     });

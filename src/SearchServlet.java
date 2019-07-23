@@ -1,6 +1,3 @@
-
-import com.alibaba.fastjson.JSONArray;
-import com.google.gson.JsonArray;
 import service.ItemService;
 import vo.Item;
 import javax.servlet.ServletException;
@@ -39,7 +36,7 @@ public class SearchServlet extends HttpServlet {
         if (items != null) {
             resultBuilder.append("[");
             for (int i = 0; i < items.size(); i++) {
-                resultBuilder.append("{\"name\":\"<a href='Item.jsp?id=").append(items.get(i).getId()).append("'>").append(items.get(i).getName()).append("</a>").append("\",\"description\":\"").append(items.get(i).getDescription()).append("\",\"address\":\"").append(items.get(i).getAddress()).append("\",\"image\":\"<img src='").append(items.get(i).getImage()).append("' class='d-block w-100' alt='...' style='width=auto'>").append("\"},");
+                resultBuilder.append("{\"name\":\"<a style='color:black'href='Item.jsp?id=").append(items.get(i).getId()).append("'>").append(items.get(i).getName()).append("</a>").append("\",\"description\":\"").append(items.get(i).getDescription()).append("\",\"address\":\"").append(items.get(i).getAddress()).append("\",\"image\":\"<img src='").append(items.get(i).getImage()).append("' class='d-block w-100' alt='...' style='width=auto'>").append("\"},");
             }
             resultBuilder.deleteCharAt(resultBuilder.length()-1);
             resultBuilder.append("]");

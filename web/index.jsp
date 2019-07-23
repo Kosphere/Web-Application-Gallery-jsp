@@ -66,34 +66,26 @@
     </a>
   </div>
         <h3 style="padding-top: 40px; padding-bottom: 10px; padding-left: 15px; color: rgb(255,255,255)">最新展品</h3>
-        <div class="container" style="padding-bottom: 20px">
-            <div class="row">
-                <div class = "col-lg">
-                    <div class="card" style="border-color: #0C0C0C">
-                        <img src="<%=latest.get(0).getImage()%>" alt="<%=latest.get(0).getId()%>" class="card-img-top"  style="height: 12rem">
-                        <div class="card-body" style="background-color: rgb(40,44,52)">
-                            <h5><a href="Item.jsp?id=<%=latest.get(0).getId()%>"><%=latest.get(0).getName()%></a></h5>
-                            <p><%=latest.get(0).getDescription()%></p>
-                        </div>
-                    </div>
+        <div class="card-deck">
+            <div class="card" style="border-color: #0C0C0C">
+                <img src="<%=latest.get(0).getImage()%>" class="card-img-top" alt="...">
+                <div class="card-body" style="background-color: rgb(40,44,52)">
+                    <h5><a href="Item.jsp?id=<%=latest.get(0).getId()%>"><%=latest.get(0).getName()%></a></h5>
+                    <p><%=latest.get(0).getDescription()%></p>
                 </div>
-                <div class = "col-lg">
-                    <div class="card" style="border-color: #0C0C0C">
-                        <img src="<%=latest.get(1).getImage()%>" alt="<%=latest.get(1).getId()%>" class="card-img-top"  style="height: 12rem">
-                        <div class="card-body" style="background-color: rgb(40,44,52)">
-                            <h5><a href="Item.jsp?id=<%=latest.get(1).getId()%>"><%=latest.get(1).getName()%></a></h5>
-                            <p><%=latest.get(1).getDescription()%></p>
-                        </div>
-                    </div>
+            </div>
+            <div class="card" style="border-color: #0C0C0C">
+                <img src="<%=latest.get(1).getImage()%>" class="card-img-top" alt="...">
+                <div class="card-body" style="background-color: rgb(40,44,52)">
+                    <h5><a href="Item.jsp?id=<%=latest.get(1).getId()%>"><%=latest.get(0).getName()%></a></h5>
+                    <p><%=latest.get(1).getDescription()%></p>
                 </div>
-                <div class = "col-lg">
-                    <div class="card" style="border-color: #0C0C0C">
-                        <img src="<%=latest.get(2).getImage()%>" alt="<%=latest.get(2).getId()%>" class="card-img-top"  style="height: 12rem">
-                        <div class="card-body" style="background-color: rgb(40,44,52)">
-                            <h5><a href="Item.jsp?id=<%=latest.get(2).getId()%>"><%=latest.get(2).getName()%></a></h5>
-                            <p><%=latest.get(2).getDescription()%></p>
-                        </div>
-                    </div>
+            </div>
+            <div class="card" style="border-color: #0C0C0C">
+                <img src="<%=latest.get(2).getImage()%>" class="card-img-top" alt="...">
+                <div class="card-body" style="background-color: rgb(40,44,52)">
+                    <h5><a href="Item.jsp?id=<%=latest.get(2).getId()%>"><%=latest.get(0).getName()%></a></h5>
+                    <p><%=latest.get(2).getDescription()%></p>
                 </div>
             </div>
         </div>

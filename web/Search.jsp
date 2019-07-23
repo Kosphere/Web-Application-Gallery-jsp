@@ -8,7 +8,7 @@
 </head>
 <body style="height: 100%">
 <%@include file="header.jsp"%>
-<div class="container-fluid" style="background-color:rgb(228,231,237); height: 92%">
+<div class="container-fluid" style="background-color:rgb(228,231,237); height: 150%">
     <div class="row justify-content-lg-center" style="padding-left: 6%; padding-top: 20px">
 
         <div class="col-lg-4">
@@ -76,7 +76,7 @@
 <script charset="UTF-8" type="text/javascript" src="js/nicePage.js"></script>
 <script charset="UTF-8" type="text/javascript">
     var json;
-    var nameList = ['name', 'description', 'address', 'image'] //table的列名
+    var nameList = ['展品名称', '展品简介', '馆藏地点', '图片预览'] //table的列名
     var widthList = [120, 120, 120, 120] //table每列的宽度
 
 </script>
