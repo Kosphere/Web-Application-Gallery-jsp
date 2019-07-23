@@ -4,6 +4,7 @@ function registerFunction(){
     let email = document.getElementById("inputEmail").value;
     let number = document.getElementById("inputNumber").value;
     let address = document.getElementById("inputAddress").value;
+    let rePassword = document.getElementById("reInputPassword").value;
     let checkPassword = /^(?![a-z0-9]+$)(?![A-Za-z]+$)(?![A-Z0-9]+$)[a-zA-Z0-9]{6,10}$/;
     let checkEmail = /^[a-z0-9A-Z]+[- |a-z0-9A-Z._]+@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-z]{2,}$/;
     if(username===''){
@@ -24,6 +25,10 @@ function registerFunction(){
     }
     if(address===''){
         alert("地址不能为空");
+        return false;
+    }
+    if (password !== rePassword) {
+        alert("两次密码不一致");
         return false;
     }
     if(username.length < 4 || username.length > 15) {

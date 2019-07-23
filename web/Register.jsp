@@ -24,6 +24,12 @@
                     </div>
                 </div>
                 <div class="form-group register-form-group">
+                    <label for="reInputPassword" class="col-sm-3 control-label">确认</label>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" id="reInputPassword" name="password" placeholder="请再次输入密码">
+                    </div>
+                </div>
+                <div class="form-group register-form-group">
                     <label for="inputEmail" class="col-sm-3 control-label">邮箱</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="inputEmail" name="email" placeholder="请输入邮箱">

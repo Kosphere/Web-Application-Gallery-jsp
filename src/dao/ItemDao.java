@@ -2,7 +2,6 @@ package dao;
 
 import util.JdbcUtil;
 import vo.Item;
-import vo.Paging;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

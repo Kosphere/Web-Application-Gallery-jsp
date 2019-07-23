@@ -29,8 +29,12 @@ public class ItemService {
     }
 
     public ArrayList<Item> getItems(String sql) {
-        ItemDao itemDao = new ItemDao();
-        return itemDao.getItems(sql);
+        if (sql.equals("")) {
+            return null;
+        }else {
+            ItemDao itemDao = new ItemDao();
+            return itemDao.getItems(sql);
+        }
     }
 
 }
